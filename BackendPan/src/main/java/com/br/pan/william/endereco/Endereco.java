@@ -35,6 +35,7 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-
-
+     @Deprecated
+    public Endereco() {
+    }
 }

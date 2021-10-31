@@ -1,6 +1,6 @@
 package com.br.pan.william.endereco;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -22,6 +22,7 @@ public class NovoEnderecoForm {
 
     @NotBlank
     private String cidade;
+
 
     public NovoEnderecoForm(String logradouro, Integer numero, String complemento, String cep, String bairro, String cidade) {
         this.logradouro = logradouro;

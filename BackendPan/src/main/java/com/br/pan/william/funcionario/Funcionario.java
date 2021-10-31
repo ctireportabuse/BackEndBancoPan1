@@ -1,5 +1,7 @@
 package com.br.pan.william.funcionario;
 
+import com.br.pan.william.endereco.Endereco;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,11 +24,16 @@ public class Funcionario {
     @Column(name = "data_saida", columnDefinition = "DATE")
     private LocalDate dataSaida;
 
-    public Funcionario(String nome, BigDecimal salario, LocalDate dataEntrada) {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+
+    public Funcionario(String nome, BigDecimal salario, LocalDate dataEntrada, Endereco endereco) {
         this.nome = nome;
         this.salario = salario;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
+        this.endereco = endereco;
     }
 
 }
