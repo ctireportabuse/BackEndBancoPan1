@@ -1,6 +1,5 @@
 package com.br.pan.william.funcionario;
 
-import javax.persistence.Column;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
