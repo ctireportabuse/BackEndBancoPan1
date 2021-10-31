@@ -1,5 +1,8 @@
 package com.br.pan.william.funcionario;
 
+import com.br.pan.william.endereco.Endereco;
+
+import javax.persistence.EntityManager;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
@@ -17,14 +20,20 @@ public class NovoFuncionarioForm {
 
     private LocalDate dataSaida;
 
-    public NovoFuncionarioForm(LocalDate dataEntrada, String nome, BigDecimal salario) {
+    private Long enderecoId;
+
+    public NovoFuncionarioForm(LocalDate dataEntrada, String nome, BigDecimal salario, Long enderecoId) {
         this.dataEntrada = dataEntrada;
         this.nome = nome;
         this.salario = salario;
+        this.enderecoId = enderecoId;
 
     }
 
-    public Funcionario toModel() {
-           return new Funcionario(this.nome, this.salario, this.dataEntrada);
+    public Funcionario toModel(EntityManager entityManager) {
+
+        Endereco endereco = entityManager.find(Endereco.class, enderecoId);
+
+           return new Funcionario(this.nome, this.salario, this.dataEntrada, endereco);
        }
    }
