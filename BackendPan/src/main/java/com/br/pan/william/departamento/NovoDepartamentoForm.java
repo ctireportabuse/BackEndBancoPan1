@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 public class NovoDepartamentoForm {
 
-    @NotBlank
+     @NotBlank
     private String nome;
 
     public void setNome(String nome) {

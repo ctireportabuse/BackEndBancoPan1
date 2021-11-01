@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -18,11 +20,15 @@ public class CargoController {
     @Autowired
     private CargoRepository repository;
 
+    @PersistenceContext
+    EntityManager entityManager;
+
+
     @PostMapping
     @Transactional
     public ResponseEntity<?>criarCargo(@RequestBody @Valid NovoCargoForm request){
 
-        Cargo cargo = request.toModel();
+        Cargo cargo = request.toModel(entityManager);
 
         repository.save(cargo);
 
