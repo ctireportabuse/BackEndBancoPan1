@@ -1,5 +1,6 @@
 package com.br.pan.william.funcionario;
 
+import com.br.pan.william.cargo.Cargo;
 import com.br.pan.william.endereco.Endereco;
 
 import javax.persistence.*;
@@ -28,12 +29,16 @@ public class Funcionario {
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
-    public Funcionario(String nome, BigDecimal salario, LocalDate dataEntrada, Endereco endereco) {
+     @OneToOne
+    private Cargo cargo;
+
+    public Funcionario(String nome, BigDecimal salario, LocalDate dataEntrada, Endereco endereco, Cargo cargo) {
         this.nome = nome;
         this.salario = salario;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.endereco = endereco;
+        this.cargo = cargo;
     }
 
 }
