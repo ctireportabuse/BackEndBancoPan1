@@ -38,4 +38,32 @@ public class Endereco {
      @Deprecated
     public Endereco() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
 }

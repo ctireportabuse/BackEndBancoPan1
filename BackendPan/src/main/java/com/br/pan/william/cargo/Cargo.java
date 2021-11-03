@@ -2,6 +2,7 @@ package com.br.pan.william.cargo;
 
 import com.br.pan.william.departamento.Departamento;
 import com.br.pan.william.funcionario.Funcionario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,11 +17,12 @@ public class Cargo {
   @Column(nullable = false)
     private String nome;
 
+
   @ManyToOne
   private Departamento departamento;
 
 
-
+  @JsonIgnore
   @OneToMany(mappedBy = "cargo")
   List<Funcionario> funcionarios = new ArrayList<>();
 
@@ -33,7 +35,19 @@ public class Cargo {
         this.departamento=departamento;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public Departamento getDepartamento() {
+        return departamento;
+    }
 
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
 }

@@ -37,4 +37,28 @@ public class NovoEnderecoForm {
     public Endereco toModel() {
         return new Endereco(this.logradouro, this.numero, this.complemento, this.cep, this.bairro, this.cidade);
     }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
 }

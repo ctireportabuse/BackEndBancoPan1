@@ -1,6 +1,7 @@
 package com.br.pan.william.departamento;
 
 import com.br.pan.william.cargo.Cargo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Departamento {
     @Column(nullable = false)
     private String nome;
 
+    @JsonIgnore
    @OneToMany(mappedBy = "departamento")
     List<Cargo> cargo =new ArrayList<>();
 
@@ -30,5 +32,15 @@ public class Departamento {
         this.nome = nome;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public List<Cargo> getCargo() {
+        return cargo;
+    }
 }
