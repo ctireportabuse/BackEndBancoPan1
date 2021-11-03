@@ -22,4 +22,12 @@ public class NovoCargoForm {
         Departamento departamentoId = entityManager.find(Departamento.class, departamento);
         return new Cargo(this.nome, departamentoId);
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Long getDepartamento() {
+        return departamento;
+    }
 }

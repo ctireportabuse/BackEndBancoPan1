@@ -15,4 +15,8 @@ public class NovoDepartamentoForm {
     public Departamento toModel() {
         return new Departamento(this.nome);
     }
+
+    public String getNome() {
+        return nome;
+    }
 }
